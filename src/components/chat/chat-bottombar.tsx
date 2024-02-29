@@ -1,6 +1,6 @@
 import { SendHorizontal, ThumbsUp } from "lucide-react";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
@@ -19,15 +19,30 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
     setMessage(event.target.value);
   };
 
-  const handleThumbsUp = () => {
-    const newMessage: Message = {
-      id: message.length + 1,
-      name: loggedInUserData.name,
-      avatar: loggedInUserData.avatar,
-      message: "👍",
-    };
-    setMessage("");
+  const updateLikes = async () => {
+    var res = await fetch("/api/likes");
+    var data = await res.json();
+    console.log(data);
+    setLikes(data.likes);
   };
+
+  const handleThumbsUp = () => {
+    const postLike = async () => {
+      var res = await fetch("/api/likes", { method: "POST" });
+      var data = await res.json();
+      console.log(data);
+      if (data === "success") {
+        setLikes((prev) => prev + 1);
+      }
+    };
+    postLike();
+  };
+
+  const [likes, setLikes] = useState(0);
+
+  useEffect(() => {
+    updateLikes();
+  }, []);
 
   const handleSend = () => {
     if (message.trim()) {
@@ -109,7 +124,10 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
             )}
             onClick={handleThumbsUp}
           >
-            <ThumbsUp size={20} className="text-muted-foreground" />
+            <div className="flex flex-col">
+              <ThumbsUp size={20} className="text-muted-foreground" />
+              <p className="text-sm text-gray-500 text-center">{likes}</p>
+            </div>
           </Link>
         )}
       </AnimatePresence>
