@@ -5,11 +5,10 @@ import React, { useEffect, useState } from "react";
 import { Chat } from "./chat";
 
 export function ChatLayout() {
-  const selectedUser = userData[0]
+  const selectedUser = userData[0];
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-
     const checkScreenWidth = () => {
       setIsMobile(window.innerWidth <= 768);
     };

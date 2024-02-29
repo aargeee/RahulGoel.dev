@@ -1,12 +1,4 @@
-import {
-  FileImage,
-  Mic,
-  Paperclip,
-  PlusCircle,
-  SendHorizontal,
-  Smile,
-  ThumbsUp,
-} from "lucide-react";
+import { SendHorizontal, ThumbsUp } from "lucide-react";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { buttonVariants } from "../ui/button";
@@ -14,19 +6,12 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Message, loggedInUserData } from "@/app/data";
 import { Textarea } from "../ui/textarea";
-import { EmojiPicker } from "../emoji-picker";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 interface ChatBottombarProps {
-  sendMessage: (newMessage: Message) => void;
   isMobile: boolean;
 }
 
-export const BottombarIcons = [];
-
-export default function ChatBottombar({
-  sendMessage, isMobile,
-}: ChatBottombarProps) {
+export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
   const [message, setMessage] = useState("");
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -41,7 +26,6 @@ export default function ChatBottombar({
       avatar: loggedInUserData.avatar,
       message: "👍",
     };
-    sendMessage(newMessage);
     setMessage("");
   };
 
@@ -53,7 +37,6 @@ export default function ChatBottombar({
         avatar: loggedInUserData.avatar,
         message: message.trim(),
       };
-      sendMessage(newMessage);
       setMessage("");
 
       if (inputRef.current) {
@@ -102,14 +85,6 @@ export default function ChatBottombar({
             placeholder="Aa"
             className=" w-full border rounded-full flex items-center h-9 resize-none overflow-hidden bg-background"
           ></Textarea>
-          <div className="absolute right-2 bottom-0.5  ">
-            <EmojiPicker onChange={(value) => {
-              setMessage(message + value)
-              if (inputRef.current) {
-                inputRef.current.focus();
-              }
-            }} />
-          </div>
         </motion.div>
 
         {message.trim() ? (

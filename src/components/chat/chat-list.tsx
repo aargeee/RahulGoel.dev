@@ -8,14 +8,12 @@ import { AnimatePresence, motion } from "framer-motion";
 interface ChatListProps {
   messages?: Message[];
   selectedUser: UserData;
-  sendMessage: (newMessage: Message) => void;
   isMobile: boolean;
 }
 
 export function ChatList({
   messages,
   selectedUser,
-  sendMessage,
   isMobile
 }: ChatListProps) {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
@@ -87,7 +85,7 @@ export function ChatList({
           ))}
         </AnimatePresence>
       </div>
-      <ChatBottombar sendMessage={sendMessage} isMobile={isMobile}/>
+      <ChatBottombar isMobile={isMobile}/>
     </div>
   );
 }
