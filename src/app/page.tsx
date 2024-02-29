@@ -2,26 +2,7 @@
 
 import ChatArea from "@/components/chat-area";
 import bg from "../../public/black-thread-light.png";
-import { useEffect, useState } from "react";
-
-const useWindowWidth = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkScreenWidth = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    checkScreenWidth();
-
-    window.addEventListener("resize", checkScreenWidth);
-
-    return () => {
-      window.removeEventListener("resize", checkScreenWidth);
-    };
-  }, []);
-
-  return isMobile;
-};
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 export default function Home() {
   const isMobile = useWindowWidth();
@@ -32,10 +13,27 @@ export default function Home() {
       style={{ backgroundImage: `url(${bg.src})` }}
     >
       <div
-        className="w-full h-full"
+        className="w-full h-full relative"
         // style={{ gridTemplateColumns: "1fr 80rem 1fr" }}
       >
-        <ChatArea isMobile={isMobile} />
+        {!isMobile && (
+          <div className="filler fixed top-0 w-[calc((100%-80rem)/2)] left-0 h-full hidden xl:block"></div>
+        )}
+        <div className="wrapper h-full">
+          <ChatArea isMobile={isMobile} />
+        </div>
+        {!isMobile && (
+          <div className="filler fixed top-0 w-[calc((100%-80rem)/2)] right-0 h-full hidden 2xl:block">
+            <div className="p-3 w-full h-full cursor-default">
+              <h3 className="uppercase">CONTENTS</h3>
+              <ul>
+                <li className="text-sm text-gray-600 pl-3 hover:text-base hover:text-black transition-[font-size]">INTRO</li>
+                <li className="text-sm text-gray-600 pl-3 hover:text-base hover:text-black transition-[font-size]">INTRO</li>
+                <li className="text-sm text-gray-600 pl-3 hover:text-base hover:text-black transition-[font-size]">INTRO</li>
+              </ul>
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );

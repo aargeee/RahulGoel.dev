@@ -94,6 +94,96 @@ export const userData = [
           },
         ],
       },
+      {
+        id: 4,
+        title: "Something Else",
+        messages: [
+          {
+            id: 2,
+            avatar: "/LoggedInUser.jpg",
+            name: "Jakob Hoeg",
+            message: "Hey!",
+          },
+          {
+            id: 3,
+            avatar: "/avatar.gif",
+            name: "Rahul Goel",
+            message: "How are you?",
+          },
+          {
+            id: 4,
+            avatar: "/LoggedInUser.jpg",
+            name: "Jakob Hoeg",
+            message: "I am good, you?",
+          },
+          {
+            id: 5,
+            avatar: "/avatar.gif",
+            name: "Rahul Goel",
+            message: "I am good too!",
+          },
+        ],
+      },
+      {
+        id: 5,
+        title: "Something Else",
+        messages: [
+          {
+            id: 2,
+            avatar: "/LoggedInUser.jpg",
+            name: "Jakob Hoeg",
+            message: "Hey!",
+          },
+          {
+            id: 3,
+            avatar: "/avatar.gif",
+            name: "Rahul Goel",
+            message: "How are you?",
+          },
+          {
+            id: 4,
+            avatar: "/LoggedInUser.jpg",
+            name: "Jakob Hoeg",
+            message: "I am good, you?",
+          },
+          {
+            id: 5,
+            avatar: "/avatar.gif",
+            name: "Rahul Goel",
+            message: "I am good too!",
+          },
+        ],
+      },
+      {
+        id: 6,
+        title: "Something Else",
+        messages: [
+          {
+            id: 2,
+            avatar: "/LoggedInUser.jpg",
+            name: "Jakob Hoeg",
+            message: "Hey!",
+          },
+          {
+            id: 3,
+            avatar: "/avatar.gif",
+            name: "Rahul Goel",
+            message: "How are you?",
+          },
+          {
+            id: 4,
+            avatar: "/LoggedInUser.jpg",
+            name: "Jakob Hoeg",
+            message: "I am good, you?",
+          },
+          {
+            id: 5,
+            avatar: "/avatar.gif",
+            name: "Rahul Goel",
+            message: "I am good too!",
+          },
+        ],
+      },
     ],
 
     name: "Rahul Goel",
