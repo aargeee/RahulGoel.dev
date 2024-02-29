@@ -1,17 +1,41 @@
-import { ChatLayout } from "@/components/chat/chat-layout";
+"use client";
+
+import ChatArea from "@/components/chat-area";
 import bg from "../../public/black-thread-light.png";
+import { useEffect, useState } from "react";
+
+const useWindowWidth = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenWidth = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkScreenWidth();
+
+    window.addEventListener("resize", checkScreenWidth);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenWidth);
+    };
+  }, []);
+
+  return isMobile;
+};
 
 export default function Home() {
+  const isMobile = useWindowWidth();
+
   return (
     <main
       className="flex h-[calc(100dvh)] flex-col items-center justify-center gap-4"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
       <div
-        className="z-10 border rounded-lg max-w-7xl w-full h-full text-sm lg:flex"
-        style={{ backgroundColor: "white" }}
+        className="w-full h-full"
+        // style={{ gridTemplateColumns: "1fr 80rem 1fr" }}
       >
-        <ChatLayout />
+        <ChatArea isMobile={isMobile} />
       </div>
     </main>
   );
