@@ -32,7 +32,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
       var data = await res.json();
       console.log(data);
       if (data === "success") {
-        setLikes((prev) => prev + 1);
+        setLikes((prev) => Number(prev) + 1);
       }
     };
     postLike();
