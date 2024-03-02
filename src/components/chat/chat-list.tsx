@@ -17,7 +17,7 @@ export function ChatList({ sections, selectedUser, isMobile }: ChatListProps) {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    ScrollToHere();
+    // ScrollToHere();
   }, []);
 
   const ScrollToHere = () => {
@@ -45,7 +45,6 @@ export function ChatList({ sections, selectedUser, isMobile }: ChatListProps) {
                       }
                     />
                   </div>
-                  ;
                   {section.messages?.map((message, index) => (
                     <motion.div
                       key={index}

@@ -1,199 +1,232 @@
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
+
+const skills = [
+  {
+    name: "Go",
+    image: "/skills/golang.svg",
+  },
+  {
+    name: "Python",
+    image: "/skills/python.svg",
+  },
+  {
+    name: "Javascript",
+    image: "/skills/js.svg",
+  },
+  {
+    name: "TypeScript",
+    image: "/skills/ts.svg",
+  },
+  {
+    name: "React",
+    image: "/skills/react.svg",
+  },
+  {
+    name: "Next.js",
+    image: "/skills/next.svg",
+  },
+  {
+    name: "HTML5",
+    image: "/skills/html5.svg",
+  },
+  {
+    name: "CSS3",
+    image: "/skills/css.svg",
+  },
+  {
+    name: "Tailwind",
+    image: "/skills/tw.svg",
+  },
+];
+
+const RG = "Rahul Goel";
+
 export const userData = [
   {
-    id: 1,
     avatar: "/avatar.gif",
 
     sections: [
       {
-        id: 1,
         title: "Introduction",
         messages: [
           {
-            id: 2,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
-            message: "Hey!",
+            message: "Hey! Introduce yourself",
           },
           {
-            id: 3,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
-            message: "How are you?",
+            name: RG,
+            message: (
+              <p>
+                Sure! <br />
+                I'm <span className="font-semibold">Rahul Goel</span>. I love
+                development, I love finding out new ways to solve problems and
+                getting things done and just playing with everything I can grab.{" "}
+                <br />
+                Most Importantly, I know how to code and I know how to do it
+                correctly.
+              </p>
+            ),
           },
           {
-            id: 4,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
-            message: "I am good, you?",
-          },
-          {
-            id: 5,
-            avatar: "/avatar.gif",
-            name: "Rahul Goel",
-            message: "I am good too!",
+            message: "That's great!",
           },
         ],
       },
       {
-        id: 2,
         title: "Skills",
         messages: [
           {
-            id: 2,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
-            message: "Hey!",
+            message: <p>So, what skills have you learnt so far?</p>,
           },
           {
-            id: 3,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
-            message: "How are you?",
+            name: RG,
+            message: (
+              <div className="">
+                <p>A full list of my skills are as follows</p>
+                <div className="skills flex flex-wrap gap-1">
+                  {skills.map((skill, index) => (
+                    <Badge key={index} className="bg-white text-white" variant={"outline"}>
+                      <Image
+                        src={skill.image}
+                        alt={skill.name}
+                        width={35}
+                        height={35}
+                      />
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            ),
           },
           {
-            id: 4,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "I am good, you?",
           },
           {
-            id: 5,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "I am good too!",
           },
         ],
       },
       {
-        id: 3,
         title: "Something Else",
         messages: [
           {
-            id: 2,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "Hey!",
           },
           {
-            id: 3,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "How are you?",
           },
           {
-            id: 4,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "I am good, you?",
           },
           {
-            id: 5,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "I am good too!",
           },
         ],
       },
       {
-        id: 4,
         title: "Something Else",
         messages: [
           {
-            id: 2,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "Hey!",
           },
           {
-            id: 3,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "How are you?",
           },
           {
-            id: 4,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "I am good, you?",
           },
           {
-            id: 5,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "I am good too!",
           },
         ],
       },
       {
-        id: 5,
         title: "Something Else",
         messages: [
           {
-            id: 2,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "Hey!",
           },
           {
-            id: 3,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "How are you?",
           },
           {
-            id: 4,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "I am good, you?",
           },
           {
-            id: 5,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "I am good too!",
           },
         ],
       },
       {
-        id: 6,
         title: "Something Else",
         messages: [
           {
-            id: 2,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "Hey!",
           },
           {
-            id: 3,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "How are you?",
           },
           {
-            id: 4,
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
             message: "I am good, you?",
           },
           {
-            id: 5,
             avatar: "/avatar.gif",
-            name: "Rahul Goel",
+            name: RG,
             message: "I am good too!",
           },
         ],
       },
     ],
 
-    name: "Rahul Goel",
+    name: RG,
   },
 ];
 
 export type UserData = (typeof userData)[number];
 
 export const loggedInUserData = {
-  id: 5,
   avatar: "/LoggedInUser.jpg",
   name: "Jakob Hoeg",
 };
@@ -201,20 +234,17 @@ export const loggedInUserData = {
 export type LoggedInUserData = typeof loggedInUserData;
 
 export interface Message {
-  id: number;
   avatar: string;
   name: string;
   message: string;
 }
 
 export interface MessageSection {
-  id: number;
   title: string;
   messages: Message[];
 }
 
 export interface User {
-  id: number;
   avatar: string;
   sections: MessageSection[];
   name: string;
