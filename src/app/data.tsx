@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import { ReactNode } from "react";
 
 const skills = [
   {
@@ -61,9 +62,9 @@ export const userData = [
             message: (
               <p>
                 Sure! <br />
-                I'm <span className="font-semibold">Rahul Goel</span>. I love
+                {`I'm`} <span className="font-semibold">Rahul Goel</span>. I love
                 development, I love finding out new ways to solve problems and
-                getting things done and just playing with everything I can grab.{" "}
+                getting things done and just playing with everything I can grab.
                 <br />
                 Most Importantly, I know how to code and I know how to do it
                 correctly.
@@ -236,7 +237,7 @@ export type LoggedInUserData = typeof loggedInUserData;
 export interface Message {
   avatar: string;
   name: string;
-  message: string;
+  message: ReactNode;
 }
 
 export interface MessageSection {

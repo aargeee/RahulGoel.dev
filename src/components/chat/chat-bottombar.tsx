@@ -46,14 +46,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
 
   const handleSend = () => {
     if (message.trim()) {
-      const newMessage: Message = {
-        id: message.length + 1,
-        name: loggedInUserData.name,
-        avatar: loggedInUserData.avatar,
-        message: message.trim(),
-      };
       setMessage("");
-
       if (inputRef.current) {
         inputRef.current.focus();
       }

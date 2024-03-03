@@ -8,6 +8,6 @@ datasource db {
 }
 
 model likes {
-  id    Int      @id(map: "newtable_pk") @default(autoincrement())
+  id    Int      @id(map: "likes_pk") @default(autoincrement())
   likes Decimal? @default(0) @db.Decimal
 }
