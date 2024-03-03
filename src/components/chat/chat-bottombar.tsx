@@ -4,12 +4,28 @@ import React, { useEffect, useRef, useState } from "react";
 import { buttonVariants } from "../ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { Message, loggedInUserData } from "@/app/data";
 import { Textarea } from "../ui/textarea";
 
 interface ChatBottombarProps {
   isMobile: boolean;
 }
+
+export const LoadingSpinner = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={cn("animate-spin")}
+  >
+    <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+  </svg>
+);
 
 export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
   const [message, setMessage] = useState("");
@@ -24,6 +40,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
     var data = await res.json();
     console.log(data);
     setLikes(data.likes);
+    setLoading(false);
   };
 
   const handleThumbsUp = () => {
@@ -39,6 +56,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
   };
 
   const [likes, setLikes] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     updateLikes();
@@ -119,7 +137,11 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
           >
             <div className="flex flex-col">
               <ThumbsUp size={20} className="text-muted-foreground" />
-              <p className="text-sm text-gray-500 text-center">{likes}</p>
+              {loading ? (
+                <LoadingSpinner />
+              ) : (
+                <p className="text-sm text-gray-500 text-center">{likes}</p>
+              )}
             </div>
           </Link>
         )}
