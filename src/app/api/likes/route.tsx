@@ -1,5 +1,4 @@
-import { NextResponse } from "next/server";
-
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 const GetLikesFromPG = async () => {
@@ -8,18 +7,15 @@ const GetLikesFromPG = async () => {
   return { props: { users } };
 };
 
-var likes = 0;
-
 export async function GET() {
   const data = await GetLikesFromPG();
-  console.log(data);
-
+  
   return NextResponse.json({ likes: data.props.users?.likes });
 }
 
-export async function POST() {
+export async function POST(req: NextRequest) {
   const data = await GetLikesFromPG();
-
+  console.log(req.cookies.getAll());
   await prisma.likes.update({
     where: {
       id: 1,

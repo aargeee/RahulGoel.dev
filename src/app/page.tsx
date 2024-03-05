@@ -8,10 +8,12 @@ export default function Home() {
   const isMobile = useWindowWidth();
 
   return (
+
     <main
       className="flex h-[calc(100dvh)] flex-col items-center justify-center gap-4"
       style={{ backgroundImage: `url(${bg.src})` }}
     >
+      {/* <ServerMessage /> */}
       <div
         className="w-full h-full relative"
         // style={{ gridTemplateColumns: "1fr 80rem 1fr" }}
