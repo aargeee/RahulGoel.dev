@@ -10,7 +10,7 @@ export const TopbarIcons = [];
 
 export default function ChatTopbar({ selectedUser }: ChatTopbarProps) {
   return (
-    <div className="w-full h-20 flex p-4 justify-between items-center border-b">
+    <div className="w-full h-14 flex p-4 justify-between items-center border-b">
       <div className="flex items-center gap-2">
         <Avatar className="flex justify-center items-center">
           <AvatarImage

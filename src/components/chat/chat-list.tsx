@@ -78,8 +78,8 @@ export function ChatList({ sections, selectedUser, isMobile }: ChatListProps) {
                             <AvatarImage
                               src={message.avatar}
                               alt={message.name}
-                              width={6}
-                              height={6}
+                              width={4}
+                              height={4}
                             />
                           </Avatar>
                         )}
@@ -91,8 +91,8 @@ export function ChatList({ sections, selectedUser, isMobile }: ChatListProps) {
                             <AvatarImage
                               src={message.avatar}
                               alt={message.name}
-                              width={6}
-                              height={6}
+                              width={4}
+                              height={4}
                             />
                           </Avatar>
                         )}
