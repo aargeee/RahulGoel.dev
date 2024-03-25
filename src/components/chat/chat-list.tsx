@@ -83,7 +83,7 @@ export function ChatList({ sections, selectedUser, isMobile }: ChatListProps) {
                             />
                           </Avatar>
                         )}
-                        <span className="bg-accent p-3 rounded-md max-w-3xl">
+                        <span className={`bg-accent p-3 rounded-md max-w-3xl ${(message.name === selectedUser.name) ? "" : "bg-blue-50"}`}>
                           {message.message}
                         </span>
                         {message.name !== selectedUser.name && (

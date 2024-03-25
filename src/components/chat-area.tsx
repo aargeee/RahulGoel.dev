@@ -1,7 +1,4 @@
 import { ChatLayout } from "@/components/chat/chat-layout";
-import { Interface } from "readline";
-
-
 
 export default function ChatArea({isMobile}:{isMobile: boolean;}) {
   return (

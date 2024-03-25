@@ -1,7 +1,35 @@
 import { ProjectCard } from "@/components/chat/project-card";
 import { Badge } from "@/components/ui/badge";
+import { ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
 import Image from "next/image";
 import { ReactNode } from "react";
+
+export type UserData = (typeof userData)[number];
+
+export const loggedInUserData = {
+  avatar: "/LoggedInUser.jpg",
+  name: "Jakob Hoeg",
+};
+
+export type LoggedInUserData = typeof loggedInUserData;
+
+export interface Message {
+  avatar: string;
+  name: string;
+  message: ReactNode;
+}
+
+export interface MessageSection {
+  title: string;
+  messages: Message[];
+}
+
+export interface User {
+  avatar: string;
+  sections: MessageSection[];
+  name: string;
+}
 
 const skills = [
   {
@@ -40,6 +68,24 @@ const skills = [
     name: "Tailwind",
     image: "/skills/tw.svg",
   },
+  {
+    name: "Next.js",
+    image: "/skills/next.svg",
+  },
+  {
+    name: "HTML5",
+    image: "/skills/html5.svg",
+  },
+  {
+    name: "CSS3",
+    image: "/skills/css.svg",
+  },
+  {
+    name: "Tailwind",
+    image: "/skills/tw.svg",
+  },
+  
+  
 ];
 
 const RG = "Rahul Goel";
@@ -55,28 +101,23 @@ export const userData = [
           {
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
-            message: "Hey! Introduce yourself",
+            message:
+              "Hey there! Welcome to the interview. Let's dive right in, shall we? Why don't you start by telling me a bit about yourself?",
           },
           {
             avatar: "/avatar.gif",
             name: RG,
             message: (
               <p>
-                Sure! <br />
-                {`I'm`} <span className="font-semibold">Rahul Goel</span>. I
-                love development, I love finding out new ways to solve problems
-                and getting things done and just playing with everything I can
-                grab.
-                <br />
-                Most Importantly, I know how to code and I know how to do it
-                correctly.
+                Hey there! I'm Rahul Goel. Dev enthusiast, problem-solver
+                extraordinaire, and all-around tech tinkerer. I'm all about
+                diving into challenges headfirst, finding creative solutions,
+                and just having a blast with whatever comes my way. Oh, and did
+                I mention I know how to code? And not just any code - the good
+                stuff. So, if you're looking for someone who's got the skills
+                and the spirit to get things done, you've found your match!
               </p>
             ),
-          },
-          {
-            avatar: "/LoggedInUser.jpg",
-            name: "Jakob Hoeg",
-            message: "That's great!",
           },
         ],
       },
@@ -86,29 +127,47 @@ export const userData = [
           {
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
-            message: <p>So, what skills have you learnt so far?</p>,
+            message: (
+              <p>
+                Amazing! So, what are some of your notable skills that you think
+                make you stand out?
+              </p>
+            ),
           },
           {
             avatar: "/avatar.gif",
             name: RG,
             message: (
               <div className="">
-                <p>A full list of my skills are as follows</p>
-                <div className="skills flex flex-wrap gap-1">
-                  {skills.map((skill, index) => (
-                    <Badge
-                      key={index}
-                      className="bg-white text-white"
-                      variant={"outline"}
-                    >
-                      <Image
-                        src={skill.image}
-                        alt={skill.name}
-                        width={35}
-                        height={35}
-                      />
-                    </Badge>
-                  ))}
+                <p>
+                  Certainly. I possess proficiency in various programming
+                  languages such as Golang, Python, C++, and JavaScript,
+                  showcasing versatility in software development. Within web
+                  development, I am well-versed in frameworks including Django
+                  and ReactJS. I maintain a commitment to best practices such as
+                  Test-Driven Development to ensure robust software solutions.
+                  In essence, my approach combines technical depth with a
+                  dedication to excellence in coding methodologies.
+                </p>
+                <div className="skill overflow-x-auto mt-2">
+                  <ScrollArea className="w-[200] whitespace-nowrap">
+                    {skills.map((skill, index) => (
+                      <Badge
+                        key={index}
+                        className="bg-white text-white"
+                        variant={"outline"}
+                      >
+                        <Image
+                          src={skill.image}
+                          alt={skill.name}
+                          width={35}
+                          height={35}
+                          className="aspect-square"
+                        />
+                      </Badge>
+                    ))}
+                    <ScrollBar orientation="horizontal" />
+                  </ScrollArea>
                 </div>
               </div>
             ),
@@ -116,7 +175,8 @@ export const userData = [
           {
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
-            message: "Wow, good job! Are you trying to learn something new?",
+            message:
+              "Wow, impressive! So, are you currently working on mastering any new skills?",
           },
           {
             avatar: "/avatar.gif",
@@ -124,7 +184,13 @@ export const userData = [
             message: (
               <div>
                 <p className="line-through text-gray-400">making friends</p>
-                <p>I'm tring DevOps and Machine Learning as well. Two wildly different areas, I know, but current market trends tell me doing this is the safest bet.</p>
+                <p>
+                  In addition to my current skills, I'm currently focusing on
+                  mastering DevOps and Machine Learning. Despite being disparate
+                  fields, I believe these areas align well with prevailing
+                  market demands, ensuring a versatile skill set for future
+                  endeavors.
+                </p>
               </div>
             ),
           },
@@ -199,23 +265,36 @@ export const userData = [
           {
             avatar: "/avatar.gif",
             name: RG,
-            message: <div>
-              <p>Here are a few ways you can contact me!</p>
-              <p>rgoel1729@gmail.com</p>
-            </div>,
+            message: (
+              <div>
+                <p>Here are a few ways you can contact me!</p>
+                <p>rgoel1729@gmail.com</p>
+              </div>
+            ),
           },
           {
             avatar: "/LoggedInUser.jpg",
             name: "Jakob Hoeg",
-            message: "Awesome! my boss is gonna love you in our team. Do you have a resume that I can share?",
+            message:
+              "Awesome! my boss is gonna love you in our team. Do you have a resume that I can share?",
           },
           {
             avatar: "/avatar.gif",
             name: RG,
-            message: <div>
-              <p>Thanks for the kind words😊</p>
-              <p>Here is my resume <a href="https://drive.google.com/file/d/1jEWOiY0IWr3VFnSFxhO7W9pNtOraoJPP/" className="uppercase italic underline">RESUME</a></p>
-            </div>,
+            message: (
+              <div>
+                <p>Thanks for the kind words😊</p>
+                <p>
+                  Here is my resume{" "}
+                  <a
+                    href="https://drive.google.com/file/d/1jEWOiY0IWr3VFnSFxhO7W9pNtOraoJPP/"
+                    className="uppercase italic underline"
+                  >
+                    RESUME
+                  </a>
+                </p>
+              </div>
+            ),
           },
         ],
       },
@@ -249,29 +328,3 @@ export const userData = [
     name: RG,
   },
 ];
-
-export type UserData = (typeof userData)[number];
-
-export const loggedInUserData = {
-  avatar: "/LoggedInUser.jpg",
-  name: "Jakob Hoeg",
-};
-
-export type LoggedInUserData = typeof loggedInUserData;
-
-export interface Message {
-  avatar: string;
-  name: string;
-  message: ReactNode;
-}
-
-export interface MessageSection {
-  title: string;
-  messages: Message[];
-}
-
-export interface User {
-  avatar: string;
-  sections: MessageSection[];
-  name: string;
-}
