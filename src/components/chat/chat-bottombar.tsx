@@ -34,15 +34,6 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value);
   };
-
-  const updateLikes = async () => {
-    var res = await fetch("/api/likes");
-    var data = await res.json();
-    console.log(data);
-    setLikes(data.likes);
-    setLoading(false);
-  };
-
   const handleThumbsUp = () => {
     const postLike = async () => {
       var res = await fetch("/api/likes", { method: "POST" });
@@ -57,10 +48,6 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
 
   const [likes, setLikes] = useState(0);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    updateLikes();
-  }, []);
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && event.shiftKey) {

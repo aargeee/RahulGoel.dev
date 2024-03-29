@@ -8,7 +8,7 @@ import { ReactNode } from "react";
 export type UserData = (typeof userData)[number];
 
 export const loggedInUserData = {
-  avatar: "/LoggedInUser.jpg",
+  avatar: "/NPC.png",
   name: "Jakob Hoeg",
 };
 
@@ -99,7 +99,7 @@ export const userData = [
         title: "Introduction",
         messages: [
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message:
               "Hey there! Welcome to the interview. Let's dive right in, shall we? Why don't you start by telling me a bit about yourself?",
@@ -125,7 +125,7 @@ export const userData = [
         title: "Skills",
         messages: [
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message: (
               <p>
@@ -173,7 +173,7 @@ export const userData = [
             ),
           },
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message:
               "Wow, impressive! So, are you currently working on mastering any new skills?",
@@ -200,7 +200,7 @@ export const userData = [
         title: "Projects",
         messages: [
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message:
               "Your skills are impressive! Do you have any supporting evidence for your skills mentioned?",
@@ -227,7 +227,7 @@ export const userData = [
             ),
           },
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message: "Awesome! You seem to really know your stuff",
           },
@@ -242,7 +242,7 @@ export const userData = [
         title: "Education",
         messages: [
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message:
               "Do you have any formal education or courses you want to talk about?",
@@ -258,7 +258,7 @@ export const userData = [
         title: "Get in touch",
         messages: [
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message: "Cool! I'd like to get in touch with you",
           },
@@ -273,7 +273,7 @@ export const userData = [
             ),
           },
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message:
               "Awesome! my boss is gonna love you in our team. Do you have a resume that I can share?",
@@ -302,7 +302,7 @@ export const userData = [
         title: "Work Experience",
         messages: [
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message: "Are you currently working somewhere?",
           },
@@ -312,7 +312,7 @@ export const userData = [
             message: "How are you?",
           },
           {
-            avatar: "/LoggedInUser.jpg",
+            avatar: "/NPC.png",
             name: "Jakob Hoeg",
             message: "I am good, you?",
           },

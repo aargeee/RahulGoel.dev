@@ -1,4 +1,4 @@
-import { MessageSection, UserData } from "@/app/data";
+import { MessageSection, UserData } from "../../../data";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useRef } from "react";
 import { Avatar, AvatarImage } from "../ui/avatar";
