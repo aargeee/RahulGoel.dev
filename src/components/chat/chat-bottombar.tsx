@@ -62,21 +62,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
     updateLikes();
   }, []);
 
-  const handleSend = () => {
-    if (message.trim()) {
-      setMessage("");
-      if (inputRef.current) {
-        inputRef.current.focus();
-      }
-    }
-  };
-
   const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      handleSend();
-    }
-
     if (event.key === "Enter" && event.shiftKey) {
       event.preventDefault();
       setMessage((prev) => prev + "\n");
@@ -84,68 +70,66 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
   };
 
   return (
-    <div className="p-2 flex justify-between w-full items-center gap-2">
-      <AnimatePresence initial={false}>
-        <motion.div
-          key="input"
-          className="w-full relative"
-          layout
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1 }}
-          transition={{
-            opacity: { duration: 0.05 },
-            layout: {
-              type: "spring",
-              bounce: 0.15,
-            },
-          }}
-        >
-          <Textarea
-            autoComplete="off"
-            value={message}
-            ref={inputRef}
-            onKeyDown={handleKeyPress}
-            onChange={handleInputChange}
-            name="message"
-            placeholder="Aa"
-            className=" w-full border rounded-full flex items-center h-9 resize-none overflow-hidden bg-background"
-          ></Textarea>
-        </motion.div>
+    <div>
+      <form name="interact" data-netlify="true" className="p-2 flex justify-between w-full items-center gap-2">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key="input"
+            className="w-full relative"
+            layout
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1 }}
+            transition={{
+              opacity: { duration: 0.05 },
+              layout: {
+                type: "spring",
+                bounce: 0.15,
+              },
+            }}
+          >
+            <Textarea
+              autoComplete="off"
+              value={message}
+              ref={inputRef}
+              onKeyDown={handleKeyPress}
+              onChange={handleInputChange}
+              name="message"
+              placeholder="Aa"
+              className=" w-full border rounded-full flex items-center h-9 resize-none overflow-hidden bg-background"
+            ></Textarea>
+          </motion.div>
 
-        {message.trim() ? (
-          <Link
-            href="#"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "h-9 w-9",
-              "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
-            )}
-            onClick={handleSend}
-          >
-            <SendHorizontal size={20} className="text-muted-foreground" />
-          </Link>
-        ) : (
-          <Link
-            href="#"
-            className={cn(
-              buttonVariants({ variant: "ghost", size: "icon" }),
-              "h-9 w-9",
-              "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
-            )}
-            onClick={handleThumbsUp}
-          >
-            <div className="flex flex-col">
-              <ThumbsUp size={20} className="text-muted-foreground" />
-              {loading ? (
-                <LoadingSpinner />
-              ) : (
-                <p className="text-sm text-gray-500 text-center">{likes}</p>
+          {message.trim() ? (
+            <Link
+              href="#"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "h-9 w-9",
+                "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
               )}
-            </div>
-          </Link>
-        )}
-      </AnimatePresence>
+              type="submit"
+            >
+              <SendHorizontal size={20} className="text-muted-foreground" />
+            </Link>
+          ) : (
+            <Link
+              href="#"
+              className={cn(
+                buttonVariants({ variant: "ghost", size: "icon" }),
+                "h-9 w-9",
+                "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
+              )}
+              onClick={handleThumbsUp}
+            >
+              <div className="flex flex-col">
+                <ThumbsUp size={20} className="text-muted-foreground" />
+                  <p className="text-sm text-gray-500 text-center">20</p>
+              </div>
+            </Link>
+          )}
+        </AnimatePresence>
+      </form>
     </div>
   );
 }
