@@ -71,7 +71,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
 
   return (
     <div>
-      <form name="interact" data-netlify="true" className="p-2 flex justify-between w-full items-center gap-2">
+      <form name="interact" action="/success" data-netlify="true" className="p-2 flex justify-between w-full items-center gap-2">
         <AnimatePresence initial={false}>
           <motion.div
             key="input"
@@ -124,7 +124,7 @@ export default function ChatBottombar({ isMobile }: ChatBottombarProps) {
             >
               <div className="flex flex-col">
                 <ThumbsUp size={20} className="text-muted-foreground" />
-                  <p className="text-sm text-gray-500 text-center">20</p>
+                <p className="text-sm text-gray-500 text-center">20</p>
               </div>
             </Link>
           )}
