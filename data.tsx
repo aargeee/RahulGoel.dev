@@ -9,7 +9,7 @@ export type UserData = (typeof userData)[number];
 
 export const loggedInUserData = {
   avatar: "/NPC.png",
-  name: "Jakob Hoeg",
+  name: "NPC",
 };
 
 export type LoggedInUserData = typeof loggedInUserData;
@@ -60,6 +60,19 @@ const skills = [
     name: "HTML5",
     image: "/skills/html5.svg",
   },
+
+  {
+    name: "React",
+    image: "/skills/react.svg",
+  },
+  {
+    name: "Next.js",
+    image: "/skills/next.svg",
+  },
+  {
+    name: "HTML5",
+    image: "/skills/html5.svg",
+  },
   {
     name: "CSS3",
     image: "/skills/css.svg",
@@ -84,8 +97,6 @@ const skills = [
     name: "Tailwind",
     image: "/skills/tw.svg",
   },
-  
-  
 ];
 
 const RG = "Rahul Goel";
@@ -100,7 +111,7 @@ export const userData = [
         messages: [
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message:
               "Hey there! Welcome to the interview. Let's dive right in, shall we? Why don't you start by telling me a bit about yourself?",
           },
@@ -126,7 +137,7 @@ export const userData = [
         messages: [
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message: (
               <p>
                 Amazing! So, what are some of your notable skills that you think
@@ -149,8 +160,8 @@ export const userData = [
                   In essence, my approach combines technical depth with a
                   dedication to excellence in coding methodologies.
                 </p>
-                <div className="skill overflow-x-auto mt-2">
-                  <ScrollArea className="w-[200] whitespace-nowrap">
+                <div className="overflow-x-auto">
+                  <ScrollArea className="lg:flex lg:justify-center">
                     {skills.map((skill, index) => (
                       <Badge
                         key={index}
@@ -160,13 +171,11 @@ export const userData = [
                         <Image
                           src={skill.image}
                           alt={skill.name}
-                          width={35}
-                          height={35}
-                          className="aspect-square"
+                          width={25}
+                          height={25}
                         />
                       </Badge>
                     ))}
-                    <ScrollBar orientation="horizontal" />
                   </ScrollArea>
                 </div>
               </div>
@@ -174,7 +183,7 @@ export const userData = [
           },
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message:
               "Wow, impressive! So, are you currently working on mastering any new skills?",
           },
@@ -201,7 +210,7 @@ export const userData = [
         messages: [
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message:
               "Your skills are impressive! Do you have any supporting evidence for your skills mentioned?",
           },
@@ -228,7 +237,7 @@ export const userData = [
           },
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message: "Awesome! You seem to really know your stuff",
           },
           {
@@ -243,7 +252,7 @@ export const userData = [
         messages: [
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message:
               "Do you have any formal education or courses you want to talk about?",
           },
@@ -259,7 +268,7 @@ export const userData = [
         messages: [
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message: "Cool! I'd like to get in touch with you",
           },
           {
@@ -274,7 +283,7 @@ export const userData = [
           },
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message:
               "Awesome! my boss is gonna love you in our team. Do you have a resume that I can share?",
           },
@@ -303,7 +312,7 @@ export const userData = [
         messages: [
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message: "Are you currently working somewhere?",
           },
           {
@@ -313,7 +322,7 @@ export const userData = [
           },
           {
             avatar: "/NPC.png",
-            name: "Jakob Hoeg",
+            name: "NPC",
             message: "I am good, you?",
           },
           {
