@@ -113,7 +113,7 @@ export const userData = [
             avatar: "/NPC.png",
             name: "NPC",
             message:
-              "Hey there! Welcome to the interview. Let's dive right in, shall we? Why don't you start by telling me a bit about yourself?",
+              "Hello. I am an NPC interviewer. Start by introducing yourself.",
           },
           {
             avatar: "/avatar.gif",
@@ -185,14 +185,14 @@ export const userData = [
             avatar: "/NPC.png",
             name: "NPC",
             message:
-              "Wow, impressive! So, are you currently working on mastering any new skills?",
+              "Wow, impressive! So, are you currently working on any new skills?",
           },
           {
             avatar: "/avatar.gif",
             name: RG,
             message: (
               <div>
-                <p className="line-through text-gray-400">making friends</p>
+                <p className="text-gray-50 line-through" style={{textDecoration: "line-through"}}>making friends</p>
                 <p>
                   In addition to my current skills, I'm currently focusing on
                   mastering DevOps and Machine Learning. Despite being disparate
@@ -221,16 +221,15 @@ export const userData = [
               <div>
                 <p>
                   You bet I do! <br />
-                  <span className="text-xs text-gray-400">
+                  <span className="text-sm text-gray-400">
                     This is only a fraction of all the stuff I did that I felt
                     to be mature enough to have space here. Visit the portfolio
                     page for a comprehensive list.
                   </span>
                 </p>
                 <div className="flex flex-col">
-                  <ProjectCard />
-                  <ProjectCard />
-                  <ProjectCard />
+                  <ProjectCard title="whwh" link="https://github.com/aargeee/whwh" desc="Test your webhook based applications gracefully" lang="Golang" stars={0} />
+                  <ProjectCard title="goshowtree" link="https://github.com/aargeee/goshowtree" desc="A CLI tool to view contents of a directory." lang="Golang" stars={0} />
                 </div>
               </div>
             ),
@@ -259,7 +258,11 @@ export const userData = [
           {
             avatar: "/avatar.gif",
             name: RG,
-            message: <p>National Institute of Technology, Delhi</p>,
+            message: <div>
+              <p>I am a junior at the National Institute of Technology, Delhi. I am expected to graduate by May 2025. I am pursuing Bachelor of Technology in the Electronics and Communication branch. Despite my background, I've been interested in Computers and Programming.</p>
+              <br />
+              <p>Throughout my education, I have kept a perfect track record. My current CGPA stands at 8.19 making me Rank 5 in my branch and Rank 12 in my batch.</p>
+            </div>,
           },
         ],
       },
@@ -277,7 +280,7 @@ export const userData = [
             message: (
               <div>
                 <p>Here are a few ways you can contact me!</p>
-                <p>rgoel1729@gmail.com</p>
+                <p><a className="underline" href="mailto:211220042@nitdelhi.ac.in">211220042@nitdelhi.ac.in</a></p>
               </div>
             ),
           },
@@ -285,7 +288,7 @@ export const userData = [
             avatar: "/NPC.png",
             name: "NPC",
             message:
-              "Awesome! my boss is gonna love you in our team. Do you have a resume that I can share?",
+              "Awesome! We are gonna love you in our team. Do you have a resume that I can share?",
           },
           {
             avatar: "/avatar.gif",
@@ -294,10 +297,11 @@ export const userData = [
               <div>
                 <p>Thanks for the kind words😊</p>
                 <p>
-                  Here is my resume{" "}
+                  Here is my resume&nbsp;
                   <a
                     href="https://drive.google.com/file/d/1jEWOiY0IWr3VFnSFxhO7W9pNtOraoJPP/"
                     className="uppercase italic underline"
+                    target="_blank"
                   >
                     RESUME
                   </a>
@@ -318,18 +322,14 @@ export const userData = [
           {
             avatar: "/avatar.gif",
             name: RG,
-            message: "How are you?",
-          },
-          {
-            avatar: "/NPC.png",
-            name: "NPC",
-            message: "I am good, you?",
-          },
-          {
-            avatar: "/avatar.gif",
-            name: RG,
-            message: "I am good too!",
-          },
+            message: <div>
+              <p>Yes, I am. Here is the list of my work experience.</p>
+              <div className="lg:ps-6 ps-2">
+                <p className=""><span className="font-bold">Pixelotech</span> | Software Developer Intern</p>
+                <p>I led the development of an in-house Job Applicant tracking software using Django, React, and Postgres. I seamlessly integrated into the Enterprise Information System team, contributing to collaborative efforts. My key role involved writing Django tests to verify API functionality, ensuring reliability throughout the system. Currently, I'm also focused on developing a CI/CD pipeline for our project, which will enhance our development workflow and streamline the deployment process.</p>
+              </div>
+            </div>,
+          }
         ],
       },
     ],

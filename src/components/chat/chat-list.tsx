@@ -66,7 +66,7 @@ export function ChatList({ sections, selectedUser, isMobile }: ChatListProps) {
                         originY: 0.5,
                       }}
                       className={cn(
-                        "flex flex-col gap-2 p-4 whitespace-pre-wrap",
+                        "flex flex-col lg:text-lg gap-2 p-4 whitespace-pre-wrap",
                         message.name !== selectedUser.name
                           ? "items-end"
                           : "items-start"
