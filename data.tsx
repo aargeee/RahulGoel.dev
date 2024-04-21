@@ -259,7 +259,7 @@ export const userData = [
             avatar: "/avatar.gif",
             name: RG,
             message: <div>
-              <p>I am a junior at the National Institute of Technology, Delhi. I am expected to graduate by May 2025. I am pursuing Bachelor of Technology in the Electronics and Communication branch. Despite my background, I've been interested in Computers and Programming.</p>
+              <p>I am a junior at the <span className="font-bold">National Institute of Technology, Delhi</span>. I am expected to graduate by May 2025. I am pursuing Bachelor of Technology in the Electronics and Communication branch. Despite my background, I've been interested in Computers and Programming.</p>
               <br />
               <p>Throughout my education, I have kept a perfect track record. My current CGPA stands at 8.19 making me Rank 5 in my branch and Rank 12 in my batch.</p>
             </div>,
