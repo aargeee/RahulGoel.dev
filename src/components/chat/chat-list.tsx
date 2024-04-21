@@ -1,4 +1,4 @@
-import { MessageSection, UserData } from "@/app/data";
+import { MessageSection, UserData } from "../../../data";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useRef } from "react";
 import { Avatar, AvatarImage } from "../ui/avatar";
@@ -66,7 +66,7 @@ export function ChatList({ sections, selectedUser, isMobile }: ChatListProps) {
                         originY: 0.5,
                       }}
                       className={cn(
-                        "flex flex-col gap-2 p-4 whitespace-pre-wrap",
+                        "flex flex-col lg:text-lg gap-2 p-4 whitespace-pre-wrap",
                         message.name !== selectedUser.name
                           ? "items-end"
                           : "items-start"

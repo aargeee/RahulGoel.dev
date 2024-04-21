@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar, AvatarImage } from "../ui/avatar";
-import { UserData } from "@/app/data";
+import { UserData } from "../../../data";
 
 interface ChatTopbarProps {
   selectedUser: UserData;
